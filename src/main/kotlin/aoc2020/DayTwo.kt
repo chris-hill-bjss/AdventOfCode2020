@@ -24,6 +24,7 @@ class DayTwo {
             .filter { s-> s.isNotEmpty() }
             .associate { s -> transform.invoke(s) }
     }
+
     private fun countValidPasswords(tests: Map<Rule, String>): Int {
         return tests.count { test ->
             val rule = test.key;
