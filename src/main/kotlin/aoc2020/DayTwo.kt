@@ -3,13 +3,13 @@ package aoc2020
 class DayTwo {
     fun partOne(input: String) {
         parseInputAndExecute(input) {
-            s -> Rule1(s.split(":")[0]) to s.split(":")[1]
+            s -> FrequencyRule(s.split(":")[0]) to s.split(":")[1]
         }
     }
 
     fun partTwo(input: String) {
         parseInputAndExecute(input) {
-            s -> Rule2(s.split(":")[0].trim()) to s.split(":")[1].trim()
+            s -> PositionalRule(s.split(":")[0].trim()) to s.split(":")[1].trim()
         }
     }
 
@@ -39,7 +39,7 @@ class DayTwo {
         abstract fun isValid(value: String): Boolean
     }
 
-    private class Rule1(spec: String) : Rule(spec) {
+    private class FrequencyRule(spec: String) : Rule(spec) {
         override fun isValid(value: String): Boolean {
             val letterCount = value.filter { c -> c == letter }.length
 
@@ -47,7 +47,7 @@ class DayTwo {
         }
     }
 
-    private class Rule2(spec: String) : Rule(spec) {
+    private class PositionalRule(spec: String) : Rule(spec) {
         override fun isValid(value: String): Boolean {
             val valOne = value[lower]
             val valTwo = value[upper]
