@@ -27,14 +27,11 @@ class Day3 {
     private fun solveForSlope(map: List<String>, slope: Pair<Int, Int>): Long {
         var position = Pair(0, 0)
         var collisions = 0L
+
         while (position.second < map.count()) {
             var row = map[position.second]
 
-            while (position.first >= row.length) {
-                row += row
-            }
-
-            when (row[position.first]) {
+            when (row[position.first % row.length]) {
                 '#' -> collisions++
             }
 
