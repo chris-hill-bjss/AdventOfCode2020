@@ -26,10 +26,7 @@ class Day2 {
     }
 
     private fun countValidPasswords(tests: Map<Rule, String>): Int {
-        return tests.count { test ->
-            val rule = test.key;
-            rule.isValid(test.value)
-        }
+        return tests.count { (rule, value) -> rule.isValid(value) }
     }
 
     private abstract class Rule(spec: String) {
