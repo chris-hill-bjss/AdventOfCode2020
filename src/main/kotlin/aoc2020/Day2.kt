@@ -1,6 +1,6 @@
 package aoc2020
 
-class DayTwo {
+class Day2 {
     fun partOne(input: String) {
         parseInputAndExecute(input) {
             s -> FrequencyRule(s.split(":")[0]) to s.split(":")[1]
@@ -50,8 +50,8 @@ class DayTwo {
 
     private class PositionalRule(spec: String) : Rule(spec) {
         override fun isValid(value: String): Boolean {
-            val valOne = value[lower]
-            val valTwo = value[upper]
+            val valOne = value[lower - 1]
+            val valTwo = value[upper - 1]
 
             return (valOne != valTwo) && (valOne == letter || valTwo == letter)
         }

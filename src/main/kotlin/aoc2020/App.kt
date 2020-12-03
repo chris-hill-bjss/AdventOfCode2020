@@ -2,10 +2,17 @@ package aoc2020
 
 import khttp.get
 
-val solveAll = false;
+fun main(args: Array<String>) {
+    if (args[0] == "solveAll") { solveAll() }
+}
 
-fun main() {
-    DayThree().partTwo(getInputForDay(3),
+fun solveAll() {
+    Day1().partOne(getInputForDay(1))
+    Day1().partTwo(getInputForDay(1))
+    Day2().partOne(getInputForDay(2))
+    Day2().partTwo(getInputForDay(2))
+    Day3().partOne(getInputForDay(3), 3 to 1)
+    Day3().partTwo(getInputForDay(3),
         setOf(
             1 to 1,
             3 to 1,
@@ -13,16 +20,6 @@ fun main() {
             7 to 1,
             1 to 2
         ))
-
-    if (solveAll) { solveAll() }
-}
-
-fun solveAll() {
-    DayOne().partOne(getInputForDay(1))
-    DayOne().partTwo(getInputForDay(1))
-    DayTwo().partOne(getInputForDay(2))
-    DayTwo().partTwo(getInputForDay(2))
-    DayThree().partOne(getInputForDay(3), 3 to 1)
 }
 
 fun getInputForDay(day: Int): String {

@@ -1,6 +1,6 @@
 package aoc2020
 
-class DayThree {
+class Day3 {
     fun partOne(input: String, slope: Pair<Int, Int>) {
         val map = inputToMap(input)
 

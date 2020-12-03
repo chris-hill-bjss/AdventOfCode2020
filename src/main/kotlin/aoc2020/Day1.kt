@@ -1,6 +1,6 @@
 package aoc2020
 
-class DayOne {
+class Day1 {
 
     fun partOne(input: String) {
         val values = splitInput(input);
