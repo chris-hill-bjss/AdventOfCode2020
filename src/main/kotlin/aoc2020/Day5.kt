@@ -2,13 +2,22 @@ package aoc2020
 
 class Day5 {
     fun partOne(input: String) {
-        val boardingPasses = splitInput(input)
-
-        val seatLocations = boardingPasses
+        val seatLocations = splitInput(input)
             .map { pass -> pass to getSeatLocation(pass) }
             .maxBy { (_, info) -> info.second }
 
         println(seatLocations)
+    }
+
+    fun partTwo(input: String) {
+        val seatLocations = splitInput(input)
+            .map { pass -> pass to getSeatLocation(pass) }
+            .map { (_, info) -> info.second }
+            .sorted()
+
+        val mySeatId = (seatLocations.first()..seatLocations.last()).first { id -> id !in seatLocations }
+
+        println(mySeatId);
     }
 
     private fun getSeatLocation(pass: String): Pair<Pair<Int, Int>, Int> {
@@ -25,11 +34,6 @@ class Day5 {
         }
 
         return rows[0] to cols[0] to (rows[0] * 8 + cols[0])
-    }
-
-
-    fun partTwo(input: String) {
-
     }
 
     private fun splitInput(input: String): List<String> {
