@@ -15,7 +15,24 @@ class Day6 {
     }
 
     fun partTwo(input: String) {
+        val parsedInput = splitInput(input)
+        val groupDuplicateAnswer = parsedInput
+            .map { groupAnswers -> groupAnswers.split(" ").filter { s -> s.isNotEmpty() }}
+            .map { personAnswers ->
+                personAnswers.count() to personAnswers.map { answers ->
+                    answers.trim().split("").filter { s -> s.isNotEmpty() }
+                }
+            }
+            .map { (members, answers) ->
+                answers
+                    .flatMap { person -> person.map { a -> a } }
+                    .groupBy { a -> a }
+                    .filter { grp -> grp.value.count() == members }
+                    .count()
+            }
+            .sum()
 
+        println(groupDuplicateAnswer)
     }
 
     private fun splitInput(input: String): List<String> {

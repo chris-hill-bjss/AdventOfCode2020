@@ -4,6 +4,7 @@ import khttp.get
 
 fun main(args: Array<String>) {
     Day6().partOne(getInputForDay(6))
+    Day6().partTwo(getInputForDay(6))
 
     if (args.any() && args[0] == "solveAll") { solveAll() }
 }
