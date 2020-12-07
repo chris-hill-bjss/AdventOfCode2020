@@ -3,8 +3,8 @@ package aoc2020
 import khttp.get
 
 fun main(args: Array<String>) {
-    Day6().partOne(getInputForDay(6))
-    Day6().partTwo(getInputForDay(6))
+    Day7().partOne(getInputForDay(7))
+    Day7().partTwo(getInputForDay(7))
 
     if (args.any() && args[0] == "solveAll") { solveAll() }
 }
@@ -27,6 +27,8 @@ fun solveAll() {
     Day4().partTwo(getInputForDay(4))
     Day5().partOne(getInputForDay(5))
     Day5().partTwo(getInputForDay(5))
+    Day6().partOne(getInputForDay(6))
+    Day6().partTwo(getInputForDay(6))
 }
 
 fun getInputForDay(day: Int): String {
@@ -35,3 +37,4 @@ fun getInputForDay(day: Int): String {
         mapOf("cookie" to "session=53616c7465645f5ffc76e44f95c7feefacc44f39b9e52b1abcddd2ce757e446aaf699c048ba840a9e59f0bbb0fa28d91")
     ).text
 }
+
