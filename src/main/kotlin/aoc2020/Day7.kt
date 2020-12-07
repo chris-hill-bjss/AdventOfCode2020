@@ -1,7 +1,5 @@
 package aoc2020
 
-import java.math.BigInteger
-
 class Day7 {
     fun partOne(input: String) {
         val rules = splitInput(input)
