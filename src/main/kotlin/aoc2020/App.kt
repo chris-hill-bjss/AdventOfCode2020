@@ -3,8 +3,8 @@ package aoc2020
 import khttp.get
 
 fun main(args: Array<String>) {
-    Day7().partOne(getInputForDay(7))
-    Day7().partTwo(getInputForDay(7))
+    Day8().partOne(getInputForDay(8))
+    Day8().partTwo(getInputForDay(8))
 
     if (args.any() && args[0] == "solveAll") { solveAll() }
 }
@@ -29,6 +29,8 @@ fun solveAll() {
     Day5().partTwo(getInputForDay(5))
     Day6().partOne(getInputForDay(6))
     Day6().partTwo(getInputForDay(6))
+    Day7().partOne(getInputForDay(7))
+    Day7().partTwo(getInputForDay(7))
 }
 
 fun getInputForDay(day: Int): String {
