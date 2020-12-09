@@ -2,18 +2,14 @@ package aoc2020
 
 class Day9 {
     fun partOne(input: String, preambleLength: Int) {
-        val sequence = splitInput(input)
-
-        println(getInvalidNumber(sequence, preambleLength))
+        println(getInvalidNumber(splitInput(input), preambleLength))
     }
 
     fun partTwo(input: String, preambleLength: Int) {
         val sequence = splitInput(input)
-
         val invalidNumber = getInvalidNumber(sequence, preambleLength)
-
         val (sum, range) = sequence
-            .mapIndexed { i, value ->
+            .mapIndexed { i, _ ->
                 var acc = 0L
                 var pos = i
 
@@ -28,27 +24,17 @@ class Day9 {
             }
             .first { (sum, _) -> sum == invalidNumber }
 
-
         println("$sum:$range:${range.min()!! + range.max()!!}")
     }
 
     private fun getInvalidNumber(sequence: Array<Long>, preambleLength: Int):Long {
-        var pos = preambleLength
+        val (number, _) = sequence
+            .drop(preambleLength)
+            .mapIndexed { i, target -> target to sequence.sliceArray(i until i+preambleLength).toList() }
+            .map { (target, range) -> target to range.flatMap { v -> range.filter { it != v }.map { it + v } }.distinct() }
+            .first { (target, values) -> !values.contains(target) }
 
-        for(value in sequence.drop(preambleLength)){
-            val values = sequence.sliceArray(pos-preambleLength until pos)
-
-            val validValues = values
-                .flatMap { v -> values.filter { it != v }.map { it + v } }
-
-            if (!validValues.contains(value)) {
-                return value
-            }
-
-            pos++
-        }
-
-        throw IllegalStateException("No invalid number found!")
+        return number
     }
 
     private fun splitInput(input: String): Array<Long> {
