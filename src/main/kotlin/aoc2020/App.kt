@@ -4,6 +4,7 @@ import khttp.get
 
 fun main(args: Array<String>) {
     Day10().partOne(getInputForDay(10))
+    Day10().partTwo(getInputForDay(10))
 
     if (args.any() && args[0] == "solveAll") { solveAll() }
 }
